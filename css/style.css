@@ -1,6 +1,11 @@
 /* ===| Menu CSS Start Here |=== */
-a:active{
+.top-nav a:active{
     border-bottom: 5px solid #0D6EFD;
     background-color: #fff;
+}
+.bottom-nav a:active{
+    border-bottom: 5px solid #0D6EFD;
+    background-color: #F8F9FA;
+    font-weight: bold;
 }
 /* ===| Menu CSS Start End |=== */
