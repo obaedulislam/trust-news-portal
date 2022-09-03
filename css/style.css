@@ -1,3 +1,8 @@
+/* ===| Common CSS Start Here |=== */
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+/* ===| Common CSS End Here |=== */
 /* ===| Menu CSS Start Here |=== */
 .top-nav a:active{
     border-bottom: 5px solid #0D6EFD;
