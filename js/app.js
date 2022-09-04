@@ -35,7 +35,7 @@ const loadNewsCatgoryInfo = async (categoryId, categoryName) => {
 /*==| Display News Categories Blog Section Start |==*/
 const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
     console.log(newsCategories)
-   
+    newsCategories.sort((a, b) => b.total_view - a.total_view);
 
     const newsCategoriesContainer = document.getElementById('news-catgories-container');
     newsCategoriesContainer.innerHTML = '';
@@ -89,7 +89,14 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
     newsCategoriesContainer.appendChild(newsDiv);
     });
    
-
+    const notFound = document.getElementById('items-found');
+    if(newsCategories.length > 0){
+        notFound.innerText = `${newsCategories.length} news found for category: ${categoryName === undefined ? 'Breaking News' : categoryName}`; 
+        notFound.classList.remove('d-none');
+    } else{
+        notFound.innerText = `Sorry! No news for category ${categoryName}`; 
+        notFound.classList.remove('d-none');
+    }
 }
 /*==| Display News Categories Blog Section End |==*/
 
