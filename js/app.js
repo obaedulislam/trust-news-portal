@@ -42,11 +42,15 @@ displayAllCategories();
 
 /*==| Load All News Categories Blog Section Start |==*/
 const loadNewsCatgoryInfo = async (categoryId, categoryName) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
-    console.log(url);
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNewsCategoriesInfo(data.data, categoryName);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsCategoriesInfo(data.data, categoryName);
+    } catch (error) {
+        console.log(error);
+    }
 }
 /*==| Load All News Categories Blog Section End |==*/
 
@@ -107,14 +111,19 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
     newsCategoriesContainer.appendChild(newsDiv);
     });
    
+    const sortByView = document.getElementById('sort-by-view');
     const notFound = document.getElementById('items-found');
     if(newsCategories.length > 0){
         notFound.innerText = `${newsCategories.length} news found for category: ${categoryName === undefined ? 'Breaking News' : categoryName}`; 
+        sortByView.classList.remove('d-none');
         notFound.classList.remove('d-none');
     } else{
         notFound.innerText = `Sorry! No news for category: ${categoryName}`; 
+        sortByView.classList.add('d-none');
         notFound.classList.remove('d-none');
     }
+
+    toggleSpinner(false);
 }
 /*==| Display News Categories Blog Section End |==*/
 
@@ -122,9 +131,13 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
 /*==| Load News Details Section Start|==*/
 const loadNewsDetails = async (newsId) => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNewsDetails(data.data[0]);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsDetails(data.data[0]);
+    } catch (error) {
+        console.log(error);
+    }
 }
 /*==| Load News Details Section End|==*/
 
@@ -167,20 +180,19 @@ const displayNewsDetails = (news) => {
         
         `;
 
-    const sortByView = document.getElementById('sort-by-view');
-    //Set Items found div to show the how many items are found
-    const itemsFound = document.getElementById('items-found');
-    if (newsCategories.length > 0) {
-        itemsFound.classList.remove('d-none')
-        sortByView.classList.remove('d-none');
-        itemsFound.innerText = `${newsCategories.length} news found for category ${category_name === undefined ? 'Breaking News' : category_name}`;
-    } else {
-        itemsFound.classList.remove('d-none')
-        sortByView.classList.add('d-none');
-        itemsFound.innerText = `Oops! No news found for category ${category_name}`;
-    }
+
 }
 /*==| Display News Details Section End|==*/
+
+
+const toggleSpinner = isLoading => {
+    const spinnerSection = document.getElementById('spinner');
+    if (isLoading) {
+        spinnerSection.classList.remove('d-none');
+    } else {
+        spinnerSection.classList.add('d-none');
+    }
+}
 // displayNewsCategoriesInfo('01');
 
 loadNewsCatgoryInfo('01');
