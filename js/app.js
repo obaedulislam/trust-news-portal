@@ -1,9 +1,14 @@
 /*==| Fetch Data From API Section Start |==*/
 const loadAllCategories = async() => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return data.data.news_category;
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+        return data.data.news_category;
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 /*==| Fetch Data From API Section End |==*/
 
@@ -14,10 +19,23 @@ const displayAllCategories = async () => {
     categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-            <a href="#" onclick="loadNewsCatgoryInfo('${category.category_id}', '${category.category_name}')" class="text-decoration-none active text-secondary px-3 py-2">${category.category_name}</a>
+            <button href="#" onclick="loadNewsCatgoryInfo('${category.category_id}', '${category.category_name}')" class="text-decoration-none category-btn text-secondary px-3 py-2 my-btn">${category.category_name}</button>
         `;
         categoriesContainer.appendChild(categoryDiv);
     });
+
+    //Navbar Active Menu Color
+    // Add active class to the current button (highlight it)
+    var btns = categoriesContainer.getElementsByClassName("category-btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("category-btn-active");
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" category-btn-active", "");
+            }
+            this.className += " category-btn-active";
+        });
+    }
 }
 displayAllCategories();
 /*==| Display All Categories Section End |==*/
@@ -94,7 +112,7 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
         notFound.innerText = `${newsCategories.length} news found for category: ${categoryName === undefined ? 'Breaking News' : categoryName}`; 
         notFound.classList.remove('d-none');
     } else{
-        notFound.innerText = `Sorry! No news for category ${categoryName}`; 
+        notFound.innerText = `Sorry! No news for category: ${categoryName}`; 
         notFound.classList.remove('d-none');
     }
 }
@@ -148,6 +166,19 @@ const displayNewsDetails = (news) => {
     </div>
         
         `;
+
+    const sortByView = document.getElementById('sort-by-view');
+    //Set Items found div to show the how many items are found
+    const itemsFound = document.getElementById('items-found');
+    if (newsCategories.length > 0) {
+        itemsFound.classList.remove('d-none')
+        sortByView.classList.remove('d-none');
+        itemsFound.innerText = `${newsCategories.length} news found for category ${category_name === undefined ? 'Breaking News' : category_name}`;
+    } else {
+        itemsFound.classList.remove('d-none')
+        sortByView.classList.add('d-none');
+        itemsFound.innerText = `Oops! No news found for category ${category_name}`;
+    }
 }
 /*==| Display News Details Section End|==*/
 // displayNewsCategoriesInfo('01');

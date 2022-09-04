@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust News | Best Trustworthy News Portal For You</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    
+    <!--==| All CSS Link Start Here |==-->
+    <!--Noto Sans Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--==| All CSS Link End Here |==-->
+</head>
+<body>
+    <!--==| Header Section Start Here |==-->
+    <header>
+        <!--==| Top Navbar Menu Start |==-->
+        <section class="top-nav border-bottom">
+            <div class="navbar-light ">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container py-1">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="index.html"> <img src="images/trust-news-logo.png" height="50" alt=" Logo" /></a>
+                        <!-- All Menu -->
+                        <div id="nav-menu" class="d-flex align-items-center">
+                            <a href="index.html"><button type="button" class="btn active border-0 fw-bold ">News</button></a>
+                            <a href="blog.html"> <button type="button" class="btn border-0 fw-bold">Blog</button></a>
+                            <a class="px-3" href="#"><img class="img-fluid" src="images/obaedul-islam.png" alt=""></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+        <!--==| Top Navbar Menu End |==-->
+    </header>
+    <!--==| Header Section End Here |==-->
+
+
+    <!--==| Main Section Start Here |==-->
+    <main class="py-5 bg-light">
+        <section>
+            <div id="faqs" class="container">
+                <h2 class="text-center">Four JavaScript Questions & Answers You Need to Know</h2>
+                <div class="accordion p-lg-5" id="accordionExample">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button  type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5 class="fw-bold">1. Difference between var, let and const keywords in JavaScript</h5>
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <h5>Differences between var, let, and const:</h5>
+                               <h6 class="mt-4">1. VAR</h6>
+                               <ul>
+                                    <li><p>The scope of a var variable is functional scope.</p></li>
+                                    <li><p>It can be updated and re-declared into the scope.</p></li>
+                                    <li><p>It can be declared without initialization.</p></li>
+                                    <li><p>It can be accessed without initialization as its default value is “undefined”.</p></li>
+                               </ul>
+                               <h6 class="mt-4">2. LET</h6>
+                               <ul>
+                                    <li><p>The scope of a let variable is block scope.</p></li>
+                                    <li><p>It can be updated but cannot be re-declared into the scope.</p></li>
+                                    <li><p>It can be declared without initialization.</p></li>
+                                    <li><p>It can be accessed without initialization as its default value is “undefined”.</p></li>
+                               </ul>
+                               <h6 class="mt-4">3. CONST</h6>
+                               <ul>
+                                    <li><p>The scope of a const variable is block scope.</p></li>
+                                    <li><p>It cannot be updated or re-declared into the scope.</p></li>
+                                    <li><p>It cannot be declared without initialization.</p></li>
+                                    <li><p>It cannot be accessed without initialization otherwise it will give ‘referenceError’..</p></li>
+                               </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mt-2">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="fw-bold">2. Difference Between Arrow Function and Regular Function</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                An arrow function is also known as the fat arrow function. It is a new featureintroduced in ES6 that is a more concise syntax for writing function expressions. Bothregular JavaScript functions and arrow functions work in a similar manner but there aresome differences between them. Let's see the differences below: -
+                                <ul class="mt-4">
+                                    <li><p>Syntax</p></li>
+                                    <li><p>Arguments binding</p></li>
+                                    <li><p>Use of this keyword.</p></li>
+                                    <li><p>Using a new keyword.</p></li>
+                               </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mt-2">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h5 class="fw-bold">3. What's the difference? forEach(), map(), filter(), find() in JavScript </h5>
+                                
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p><strong>forEach(),</strong> is used to execute the same code on every element in an
+                                    array but does not change the array and it returns undefined.</p>
+                                <p><strong>map()</strong> executes the same code on every element in an array and returns a new array with the updated elements. </p>
+                                <p><strong>filter()</strong> checks every element in an array to see if it meets a certain
+                                    criteria and returns a new array with the elements that return truthy for the criteria.</p>
+                               <p> The <strong>find()</strong> method returns the first value that matches from the
+                                collection. Once it matches the value in findings, it will not check the remaining
+                                values in the array collection.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mt-2">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <h5 class="fw-bold">4. Why should we use template literals?</h5>
+                                
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Template literals are literals delimited with backtick (`) characters, allowing for
+                                    multi-line strings, for string interpolation with embedded expressions, and for special
+                                    constructs called tagged templates.</p>
+                                <p>Template literals are sometimes informally called template strings, because they are
+                                    used most commonly for string interpolation (to create strings by doing substitution of
+                                    placeholders). However, a tagged template literal may not result in a string; it can be
+                                    used with a custom tag function to perform whatever operations you want on the different
+                                    parts of the template literal.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    </main>
+    <!--==| Main Section End Here |==-->
+
+
+    <!--==| Footer Section Start Here |==-->
+    <footer class="py-4 bg-white ">
+        <section class="footer-section container">
+            <div class="footer-text">
+                <p class="text-center mb-0 pb-0">Copyright &copy, 2022 | All Rights Reserved by Trust News</p>
+            </div>
+        </section>
+    </footer>
+    <!--==| Footer Section End Here |==-->
+
+
+
+    <!--==| All JS Link Start Here |==-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <!--==| All JS Link End Here |==-->
+</body>
+</html>
