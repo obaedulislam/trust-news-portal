@@ -56,11 +56,44 @@
 
     <!--==| Main Section Start Here |==-->
     <main class="py-5 bg-light">
-        <section class="container ">
+        <section class="container">
+            <!-- news items found area  -->
+            <div class="mt-1">
+                <h5 id="items-found" class="bg-white p-3 d-none rounded-3"></h5>
+            </div>
+        </section>
+        <!--==| All News Categories Section Start Here |==-->
+        <section class="container" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">
             <div id="news-catgories-container" class="row row-cols-1 g-4 categories-container">
 
               </div>
         </section>
+        <!--==| All News Categories Section End Here |==-->
+
+        <!--==| News Categories Deatils Start Here |==-->
+        <section class="modal-section container">
+            <div class="modal fade modal-lg" id="newsDetailsModal" tabindex="-1" aria-labelledby="newsDetailsModalLabel"
+            aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="newsDetailsModalLabel">Full Detail's News</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        
+                        <div id="modal-body" class="modal-body">
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==|  News Categories Deatils Section Start Here |==-->
+
     </main>
     <!--==| Main Section End Here |==-->
 
