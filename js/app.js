@@ -19,21 +19,22 @@ const displayAllCategories = async () => {
     categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-            <button href="#" onclick="loadNewsCatgoryInfo('${category.category_id}', '${category.category_name}')" class="text-decoration-none category-btn text-secondary px-3 py-2 my-btn">${category.category_name}</button>
+            <button href="#" onclick="loadNewsCatgoryInfo('${category.category_id}', '${category.category_name}')" class="text-decoration-none category-btn text-secondary px-3 py-2 my-btn ">${category.category_name}</button>
         `;
         categoriesContainer.appendChild(categoryDiv);
     });
 
+
     //Navbar Active Menu Color
     // Add active class to the current button (highlight it)
-    var btns = categoriesContainer.getElementsByClassName("category-btn");
-    for (var i = 0; i < btns.length; i++) {
+    const btns = categoriesContainer.getElementsByClassName("category-btn");
+    for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("category-btn-active");
+            const current = document.getElementsByClassName("btn-active");
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(" category-btn-active", "");
+                current[0].className = current[0].className.replace("btn-active", "");
             }
-            this.className += " category-btn-active";
+            this.className += "btn-active";
         });
     }
 }
@@ -59,7 +60,7 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
     console.log(newsCategories)
     newsCategories.sort((a, b) => b.total_view - a.total_view);
 
-    const newsCategoriesContainer = document.getElementById('news-catgories-container');
+    const newsCategoriesContainer = document.getElementById('news-categories-container');
     newsCategoriesContainer.innerHTML = '';
     newsCategories.forEach(category => {
         const newsDiv = document.createElement('div');
@@ -83,18 +84,18 @@ const displayNewsCategoriesInfo = (newsCategories, categoryName) => {
                                         <img src="${img}" class="img-fluid w-75 h-75 rounded-circle"  alt="">
                                     </div>
                                     <div class="author-details ">
-                                            <h6 class="mb-0 fw-bold">${name}</h6>
+                                            <h6 class="mb-0 fw-bold">${name=== null || name === '' ? 'Name Not Found' : name}</h6>
                                             <div class="date pt-1">
-                                                <p class="mb-0">${published_date}</p>
+                                                <p class="mb-0">${published_date === null || published_date === '' ? 'Date Not Found' : published_date}</p>
                                             </div>
                                     </div>
                                 </div>
                                 <!--Author Details End-->
-                                <div class="col-md-2 view d-flex justify-content-center">
-                                    <h5 class="fw-bolder mb-0"><span class="me-2"><i class="fa-solid fa-eye"></i></span><span>${category.total_view}</span></h5>
+                                <div class="col-md-3 view d-flex justify-content-center">
+                                    <h6 class="fw-bolder mb-0"><span class="me-2"><i class="fa-solid fa-eye"></i></span><span>${category.total_view === null || category.total_view === '' ? ' View Not Found': category.total_view}</span></h6>
                                 </div>
                                 <!--Review Section-->
-                                <div class="col-md-3 view d-flex justify-content-center">
+                                <div class="col-md-2 view d-flex justify-content-center">
                                     <p class="mb-0">${badge}<span class="ms-2 fw-bold">${number}<i class="fa-solid fa-star ms-1"></i></span></p>
                                 </div>
                                 <!--Blog detail button Section-->
@@ -160,7 +161,7 @@ const displayNewsDetails = (news) => {
 
                         <div class="d-flex align-items-center gap-2">
                             <img class="rounded-pill" src="${author.img}" style="margin-top: -10px; width:40px; height: 40px;" alt="author">
-                            <p>${author.name === '' ? author.name = 'Name Not Found' : author.name}</p>
+                            <p>${author.name === null ||author.name === '' ? 'Name Not Found' : author.name}</p>
                         </div>
                         <div>
                             <p class=""><i class="fa-sharp fa-solid fa-calendar-days me-1"></i> ${author.published_date === null ? 'Date Not Found' : author.published_date}</p>
@@ -169,7 +170,7 @@ const displayNewsDetails = (news) => {
                     <p class="card-text text-secondary">${details}</p>
                     <div>
                         <ul class="d-flex justify-content-between flex-wrap list-unstyled pt-3">
-                            <li><i class="fa-regular fa-eye me-1"></i>  ${total_view}</li>
+                            <li><i class="fa-regular fa-eye me-1"></i>  ${total_view === null || total_view === '' ? 'View Not Found' : total_view}</li>
                             <li ><span class="me-3">${rating.badge} </span>${rating.number} <i class="fa-solid fa-star ms-1"></i></li>
                         </ul>
                     </div>

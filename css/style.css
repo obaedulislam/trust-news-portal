@@ -7,14 +7,13 @@ body{
 .category-btn {
     border: none;
     outline: none;
-    background-color: #fff;
     border-radius: 10px;
     transition: .5s;
   }
-  .my-btn, .my-btn:hover {
+  .active, .btn:hover {
     background-color: #F8F9FA;
   }
-  .category-btn-active, .category-btn:hover {
+  .btn-active, .category-btn:hover {
     background-color: rgb(0,123,255);
     color: white !important;
   }
